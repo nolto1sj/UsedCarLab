@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace UsedCarLab
 {
-    internal class UsedCar : Car
+    public class UsedCar : Car
     {
+        public double Milage { get; set; }
+
+        public UsedCar(string make, string model, int year, decimal price, double milage) : base(make, model, year, price)
+        {
+            Milage = milage;
+        }
     }
 }
