@@ -22,6 +22,17 @@ namespace UsedCarLab
         public int Year { get; set; }
         public decimal Price { get; set; }
 
-        public Car() { }
+        public Car() 
+        {
+            Make = "";
+            Model = "";
+            Year = 0;
+            Price = 0M;
+        }
+
+        public virtual string CarString()
+        {
+            return base.ToString();
+        }
     }
 }
