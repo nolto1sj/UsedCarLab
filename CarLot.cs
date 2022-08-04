@@ -36,7 +36,7 @@ namespace UsedCarLab
         {
             Console.WriteLine($"\nMake: {a.Make}\nModel: {a.Model}\nYear: {a.Year}\nCondition: {a.Condition}\nPrice: {a.Price.ToString("C")}");
             if (a.GetType() == typeof(UsedCar))
-                Console.WriteLine($"\nMilage: {a.Milage.ToString("N0")}");
+                Console.WriteLine($"Milage: {a.Milage.ToString("N0")}");
             else
                 Console.WriteLine();
         }

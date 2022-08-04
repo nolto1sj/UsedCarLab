@@ -1,5 +1,8 @@
 ﻿using UsedCarLab;
 
+Console.BackgroundColor = ConsoleColor.DarkGreen; 
+Console.ForegroundColor = ConsoleColor.Yellow;
+
 bool continueLoop = true;
 
 Console.WriteLine("Welcome to the Car Lot!\n");
@@ -12,7 +15,7 @@ while(continueLoop)
 
     CarLot.PrintCarDetails(CarLot.OrderedInventoryList[input - 1]);
 
-    Console.WriteLine("Would you like to purchase this car? y/n ");
+    Console.WriteLine("\nWould you like to purchase this car? (y/n)");
     if (Console.ReadKey().Key == ConsoleKey.Y)
     {
         int carIndex = CarLot.Inventory.FindIndex(x => x.Model.Contains(CarLot.OrderedInventoryList[input - 1].Model));
@@ -28,13 +31,13 @@ while(continueLoop)
     }
     else
     {
-        continueLoop = false;
+        Console.WriteLine("\nWould you still like to buy a car? (y/n)");
+        if (Console.ReadKey().Key == ConsoleKey.Y)
+            Console.Clear();
+        else
+            continueLoop = false;
     }
 }
 
 Console.WriteLine();
 Console.WriteLine("Thank you for shopping with us!");
-
-
-
-
