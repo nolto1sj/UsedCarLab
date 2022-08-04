@@ -31,6 +31,11 @@ namespace UsedCarLab
             OrderedInventoryList = Inventory.OrderBy(x => x.Condition).ToList();
         }
 
+        public static void PrintCarDetails(Car a)
+        {
+            Console.WriteLine($"Make: {a.Make}\nModel: {a.Model}\nYear: {a.Year}\n");
+        }
+
         /// <summary>
         /// Draws a formatted inventory table to the console.
         /// </summary>

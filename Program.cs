@@ -5,4 +5,16 @@ Console.WriteLine();
 
 CarLot.ShowCarList();
 
-Console.WriteLine(CarLot.OrderedInventoryList[1].Make);
+int input = int.Parse(Console.ReadLine());
+
+CarLot.PrintCarDetails(CarLot.OrderedInventoryList[input - 1]);
+
+Console.WriteLine("Would you like to purchase this car? y/n ");
+if (Console.ReadKey().Key == ConsoleKey.Y)
+{
+
+}
+else
+{
+
+}
