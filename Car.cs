@@ -14,7 +14,6 @@ namespace UsedCarLab
             Model = model; 
             Year = year;  
             Price = price;
-            Condition = "New";
         }
 
         //properties
@@ -22,7 +21,7 @@ namespace UsedCarLab
         public string Model { get; set; }
         public int Year { get; set; }
         public decimal Price { get; set; }
-        public string Condition { get; set; }
+        public virtual string Condition { get; set; }
 
         public Car() 
         {
@@ -30,6 +29,7 @@ namespace UsedCarLab
             Model = "";
             Year = 0;
             Price = 0M;
+            Condition = "";
         }
 
         public override string ToString() // Lisa was right, I cannot read
