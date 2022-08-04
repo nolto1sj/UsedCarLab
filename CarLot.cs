@@ -26,8 +26,9 @@ namespace UsedCarLab
         /// <summary>
         /// Updates the OrderedInventoryList using Inventory List. This method will reflect both new inventory changes and will order inevntory based on condition provided.
         /// </summary>
-        static void UpdatedOrderedInventoryList()
+        public static void UpdatedOrderedInventoryList()
         {
+            OrderedInventoryList = Inventory.OrderBy(x => x.Make).ToList();
             OrderedInventoryList = Inventory.OrderBy(x => x.Condition).ToList();
         }
 
