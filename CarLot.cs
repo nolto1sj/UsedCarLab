@@ -14,7 +14,8 @@ namespace UsedCarLab
              new Car("Pontiac", "Vibe", 2022, 30000m),
              new Car("Acura", "CL", 2022, 24000m),
              new Car("Ford", "Explorer", 2022, 35000m),
-             new UsedCar("Ford", "Raptor", 2019, 48367m, 34789d)
+             new UsedCar("Ford", "Raptor", 2019, 48367m, 34789d),
+             new UsedCar("Honda", "Prelude", 1998, 96850, 5999d)
         };
     }
 }
