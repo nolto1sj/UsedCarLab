@@ -34,7 +34,11 @@ namespace UsedCarLab
 
         public static void PrintCarDetails(Car a)
         {
-            Console.WriteLine($"Make: {a.Make}\nModel: {a.Model}\nYear: {a.Year}\n");
+            Console.WriteLine($"\nMake: {a.Make}\nModel: {a.Model}\nYear: {a.Year}\nCondition: {a.Condition}\nPrice: {a.Price.ToString("C")}");
+            if (a.GetType() == typeof(UsedCar))
+                Console.WriteLine($"\nMilage: {a.Milage.ToString("N0")}");
+            else
+                Console.WriteLine();
         }
 
         /// <summary>

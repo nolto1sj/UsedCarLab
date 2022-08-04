@@ -8,9 +8,6 @@ namespace UsedCarLab
 {
     public class UsedCar : Car
     {
-        // Properties
-        public double Milage { get; set; }
-
         // Constructor
         public UsedCar(string make, string model, int year, decimal price, double milage) : base(make, model, year, price)
         {

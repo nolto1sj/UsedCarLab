@@ -14,6 +14,7 @@ namespace UsedCarLab
         public int Year { get; set; }
         public decimal Price { get; set; }
         public virtual string Condition { get; set; }
+        public double Milage { get; set; }
 
         // Constructors
         public Car(string make, string model, int year, decimal price)
