@@ -13,7 +13,8 @@ namespace UsedCarLab
              new Car("Kia", "Rio", 2022, 19000.00m),
              new Car("Pontiac", "Vibe", 2022, 30000m),
              new Car("Acura", "CL", 2022, 24000m),
-             new Car("Ford", "Explorer", 2022, 35000m)
+             new Car("Ford", "Explorer", 2022, 35000m),
+             new UsedCar("Ford", "Raptor", 2019, 48367m, 34789d)
         };
     }
 }

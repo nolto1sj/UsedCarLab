@@ -14,6 +14,7 @@ namespace UsedCarLab
             Model = model; 
             Year = year;  
             Price = price;
+            Condition = "New";
         }
 
         //properties
@@ -21,6 +22,7 @@ namespace UsedCarLab
         public string Model { get; set; }
         public int Year { get; set; }
         public decimal Price { get; set; }
+        public string Condition { get; set; }
 
         public Car() 
         {
@@ -30,9 +32,9 @@ namespace UsedCarLab
             Price = 0M;
         }
 
-        public virtual string CarString()
+        public override string ToString() // Lisa was right, I cannot read
         {
-            return base.ToString();
+            return string.Format($"{Make,-9} {Model,-9} {Year,-5} {Condition,-5} {Price.ToString("C"),12}");
         }
     }
 }
