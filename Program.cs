@@ -5,4 +5,4 @@ Console.WriteLine();
 
 CarLot.ShowCarList();
 
-//Console.WriteLine(CarLot.inventory[1].Make);
+Console.WriteLine(CarLot.OrderedInventoryList[1].Make);

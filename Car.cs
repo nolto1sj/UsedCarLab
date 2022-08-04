@@ -14,6 +14,7 @@ namespace UsedCarLab
             Model = model; 
             Year = year;  
             Price = price;
+            Condition = "New";
         }
 
         //properties

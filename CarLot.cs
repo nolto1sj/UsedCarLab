@@ -8,7 +8,9 @@ namespace UsedCarLab
 {
     public static class CarLot
     {
-        public static List<Car> inventory = new List<Car>()
+        public static List<Car> OrderedInventoryList = new List<Car>();
+
+        public static List<Car> Inventory = new List<Car>()
         {
             new Car("Kia", "Rio", 2022, 19000.00m),
             new UsedCar("Ford", "Raptor", 2019, 48367m, 34789d),
@@ -18,6 +20,11 @@ namespace UsedCarLab
             new Car("Ford", "Explorer", 2022, 35000m)
         };
 
+        static void UpdatedOrderedInventoryList()
+        {
+            OrderedInventoryList = Inventory.OrderBy(x => x.Condition).ToList();
+        }
+
         public static void ShowCarList()
         {
             Console.WriteLine(string.Format($"{"",2}  {"MAKE",-9} {"MODEL",-9} {"YEAR",-5} {"COND.",-5} {"  PRICE",-12} {"MILAGE",8}"));
@@ -25,7 +32,9 @@ namespace UsedCarLab
 
             int count = 0;
 
-            inventory.OrderBy(x => x.Condition).ToList().ForEach(car =>
+            UpdatedOrderedInventoryList();
+
+            OrderedInventoryList.ForEach(car =>
             {
                 count++;
                 Console.WriteLine(string.Format($"{count,2}  ") + car.ToString());
