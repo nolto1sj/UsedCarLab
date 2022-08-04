@@ -8,23 +8,24 @@ namespace UsedCarLab
 {
     public class Car
     {
-       public Car(string make, string model, int year, decimal price)
-        {
-            Make = make;
-            Model = model; 
-            Year = year;  
-            Price = price;
-            Condition = "New";
-        }
-
-        //properties
+        // Properties
         public string Make { get; set; }
         public string Model { get; set; }
         public int Year { get; set; }
         public decimal Price { get; set; }
         public virtual string Condition { get; set; }
 
-        public Car() 
+        // Constructors
+        public Car(string make, string model, int year, decimal price)
+        {
+            Make = make;
+            Model = model;
+            Year = year;
+            Price = price;
+            Condition = "New";
+        }
+
+        public Car()
         {
             Make = "";
             Model = "";
@@ -33,7 +34,8 @@ namespace UsedCarLab
             Condition = "";
         }
 
-        public override string ToString() // Lisa was right, I cannot read
+        // Methods
+        public override string ToString()
         {
             return string.Format($"{Make,-9} {Model,-9} {Year,-5} {Condition,-5} {Price.ToString("C"),12}");
         }

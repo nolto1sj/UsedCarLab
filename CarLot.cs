@@ -8,6 +8,7 @@ namespace UsedCarLab
 {
     public static class CarLot
     {
+        // Properties
         public static List<Car> OrderedInventoryList = new List<Car>();
 
         public static List<Car> Inventory = new List<Car>()
@@ -20,11 +21,19 @@ namespace UsedCarLab
             new Car("Ford", "Explorer", 2022, 35000m)
         };
 
+
+        // Methods
+        /// <summary>
+        /// Updates the OrderedInventoryList using Inventory List. This method will reflect both new inventory changes and will order inevntory based on condition provided.
+        /// </summary>
         static void UpdatedOrderedInventoryList()
         {
             OrderedInventoryList = Inventory.OrderBy(x => x.Condition).ToList();
         }
 
+        /// <summary>
+        /// Draws a formatted inventory table to the console.
+        /// </summary>
         public static void ShowCarList()
         {
             Console.WriteLine(string.Format($"{"",2}  {"MAKE",-9} {"MODEL",-9} {"YEAR",-5} {"COND.",-5} {"  PRICE",-12} {"MILAGE",8}"));

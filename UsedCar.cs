@@ -8,15 +8,18 @@ namespace UsedCarLab
 {
     public class UsedCar : Car
     {
+        // Properties
         public double Milage { get; set; }
 
+        // Constructor
         public UsedCar(string make, string model, int year, decimal price, double milage) : base(make, model, year, price)
         {
             Milage = milage;
             Condition = "Used";
         }
 
-        public override string ToString() // Lisa was right, I cannot read
+        // Methods
+        public override string ToString()
         {
             return string.Format($"{Make,-9} {Model,-9} {Year,-5} {Condition,-5} {Price.ToString("C"),12} {Milage.ToString("N0"),8}");
         }
