@@ -28,7 +28,6 @@ namespace UsedCarLab
         /// </summary>
         public static void UpdatedOrderedInventoryList()
         {
-            OrderedInventoryList = Inventory.OrderBy(x => x.Make).ToList();
             OrderedInventoryList = Inventory.OrderBy(x => x.Condition).ToList();
         }
 

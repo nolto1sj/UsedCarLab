@@ -26,15 +26,6 @@ namespace UsedCarLab
             Condition = "New";
         }
 
-        public Car()
-        {
-            Make = "";
-            Model = "";
-            Year = 0;
-            Price = 0M;
-            Condition = "";
-        }
-
         // Methods
         public override string ToString()
         {

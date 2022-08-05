@@ -10,7 +10,7 @@ Console.WriteLine("Welcome to the Car Lot!\n");
 while(continueLoop)
 {
     CarLot.ShowCarList();
-    Console.WriteLine("\nWhat car would you like to buy today?");
+    Console.WriteLine($"\nWhat car would you like to buy today? (1-{CarLot.OrderedInventoryList.Count})");
     int input = int.Parse(Console.ReadLine());
 
     CarLot.PrintCarDetails(CarLot.OrderedInventoryList[input - 1]);
