@@ -28,14 +28,14 @@ namespace UsedCarLab
         /// </summary>
         public static void UpdatedOrderedInventoryList()
         {
-            OrderedInventoryList = Inventory.OrderBy(x => x.Condition).ToList();
+            OrderedInventoryList = Inventory.OrderBy(car => car.Condition).ToList();
         }
 
-        public static void PrintCarDetails(Car a)
+        public static void PrintCarDetails(Car carFromList)
         {
-            Console.WriteLine($"\nMake: {a.Make}\nModel: {a.Model}\nYear: {a.Year}\nCondition: {a.Condition}\nPrice: {a.Price.ToString("C")}");
-            if (a.GetType() == typeof(UsedCar))
-                Console.WriteLine($"Milage: {a.Milage.ToString("N0")}");
+            Console.WriteLine($"\nMake: {carFromList.Make}\nModel: {carFromList.Model}\nYear: {carFromList.Year}\nCondition: {carFromList.Condition}\nPrice: {carFromList.Price.ToString("C")}");
+            if (carFromList.GetType() == typeof(UsedCar))
+                Console.WriteLine($"Milage: {carFromList.Milage.ToString("N0")}");
             else
                 Console.WriteLine();
         }
@@ -52,11 +52,83 @@ namespace UsedCarLab
 
             UpdatedOrderedInventoryList();
 
-            OrderedInventoryList.ForEach(car =>
-            {
-                count++;
-                Console.WriteLine(string.Format($"{count,2}  ") + car.ToString());
-            });
+            OrderedInventoryList.ForEach(car => Console.WriteLine(string.Format($"{++count,2}  ") + car.ToString()));
         }
+
+        public static bool SellCar()
+        {
+            Console.WriteLine("Please provide the following details about your car:\n");
+            Console.Write("Make: ");
+            string make = Console.ReadLine();
+
+            Console.Write("Model: ");
+            string model = Console.ReadLine();
+
+            Console.Write("Year: ");
+            int year = int.Parse(Console.ReadLine());
+
+            Console.Write("Price: ");
+            decimal price = Convert.ToDecimal(Console.ReadLine());
+
+            Console.Write("Milage: ");
+            double milage = Convert.ToDouble(Console.ReadLine());
+
+            Inventory.Add(new UsedCar(make, model, year, price, milage));
+
+            Console.WriteLine("Congrats! You sold the following car:");
+            
+            PrintCarDetails(Inventory[Inventory.Count - 1]);
+
+            Console.WriteLine("\nWould you now like to buy a car? (y/n)");
+            if (Console.ReadKey().Key == ConsoleKey.Y)
+            {
+                Console.Clear();
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public static bool BuyCar()
+        {
+
+            Console.WriteLine($"\nWhat car would you like to buy today? (1-{OrderedInventoryList.Count})");
+            int input = int.Parse(Console.ReadLine());
+
+            PrintCarDetails(OrderedInventoryList[input - 1]);
+
+            Console.WriteLine("\nWould you like to purchase this car? (y/n)");
+            if (Console.ReadKey().Key == ConsoleKey.Y)
+            {
+                int carIndex = Inventory.FindIndex(x => x.Model.Contains(OrderedInventoryList[input - 1].Model));
+                Inventory.RemoveAt(carIndex);
+                UpdatedOrderedInventoryList();
+                Console.Clear();
+                Console.WriteLine("Excellent! Our finance department will be in touch shortly.\n");
+                Console.WriteLine("Would you like to buy another car? (y/n)");
+                if (Console.ReadKey().Key == ConsoleKey.Y)
+                {
+                    Console.Clear();
+                    return true;
+                }
+
+                else
+                    return false;
+            }
+            else
+            {
+                Console.WriteLine("\nWould you still like to buy a car? (y/n)");
+                if (Console.ReadKey().Key == ConsoleKey.Y)
+                {
+                    // If you add a waypoint, call Console.Clear() and then ShowCarList()
+                    Console.Clear();
+                    return true;
+                }
+                else
+                    return false;
+            }
+        }
+
+
     }
 }

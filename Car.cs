@@ -13,7 +13,7 @@ namespace UsedCarLab
         public string Model { get; set; }
         public int Year { get; set; }
         public decimal Price { get; set; }
-        public virtual string Condition { get; set; }
+        public string Condition { get; set; }
         public double Milage { get; set; }
 
         // Constructors
