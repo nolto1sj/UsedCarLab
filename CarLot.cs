@@ -79,7 +79,7 @@ namespace UsedCarLab
             
             PrintCarDetails(Inventory[Inventory.Count - 1]);
 
-            Console.WriteLine("\nWould you now like to buy a car? (y/n)");
+            Console.WriteLine("\nWould you now like return to see the updated inventory? (y/n)");
             if (Console.ReadKey().Key == ConsoleKey.Y)
             {
                 Console.Clear();
